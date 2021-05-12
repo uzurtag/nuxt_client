@@ -34,7 +34,6 @@
           </button>
         </template>
       </date-picker>
-
       <div class="form-buttons">
         <button class="btn btn-danger" @click="$emit('close')">Close</button>
         <button type="submit" class="btn btn-primary">{{ title }}</button>
@@ -60,7 +59,7 @@ export default {
       title: '',
       description: '',
       status: 'todo',
-      date: '',
+      date: new Date(),
     }
 
     if (this.formData !== undefined) {
@@ -69,7 +68,7 @@ export default {
         title: this.formData.title,
         description: this.formData.description,
         status: this.formData.status,
-        date: this.formData.date,
+        date: new Date(this.formData.date),
       }
     }
 
