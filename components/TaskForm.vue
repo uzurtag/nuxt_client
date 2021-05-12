@@ -1,35 +1,8 @@
 <template>
-  <!-- <modal name="login" width="430" height="auto"> -->
   <div class="form">
     <div class="form-header">
       <h2>{{ title }} card</h2>
     </div>
-
-    <!-- <form class="sign-up" @submit.prevent="submitForm">
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input id="title" v-model="form.title" />
-      </div>
-
-      <div class="form-group">
-        <label for="desription">Description</label>
-        <textarea
-          id="desription"
-          v-model="form.description"
-          name="desription"
-          cols="25"
-          rows="5"
-        ></textarea>
-      </div>
-      <div class="form-group">
-        <label for="date">Date</label>
-        <input id="date" v-model="form.date" />
-      </div>
-
-      <button class="btn btn-danger" @click="$emit('close')">Close</button>
-      <button type="submit" class="btn btn-primary">{{ title }}</button>
-    </form> -->
-
     <form class="sign-up" @submit.prevent="submitForm">
       <label for="title">Title:</label>
       <input
@@ -68,7 +41,6 @@
       </div>
     </form>
   </div>
-  <!-- </modal> -->
 </template>
 <script>
 import datePicker from 'vue2-datepicker'

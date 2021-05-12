@@ -96,14 +96,6 @@ export default {
     closeModalBoard() {
       this.boardForm = false
     },
-
-    updateBlock() {
-      window.console.log('here')
-    },
-
-    remove(value) {
-      window.console.log(value)
-    },
   },
 }
 </script>

@@ -3,15 +3,7 @@
     <div class="form-header">
       <h2>Create board</h2>
     </div>
-
     <form class="sign-up" @submit.prevent="submitForm">
-      <!-- <label for="key-status">Key-status:</label>
-      <input
-        id="key-status"
-        v-model="form.key"
-        type="text"
-        placeholder="Key status..."
-      /> -->
       <label for="title">Title:</label>
       <input
         id="title"
@@ -52,7 +44,7 @@ export default {
 .form {
   display: block;
   width: 300px;
-  height: 420px;
+  height: 190px;
   position: absolute;
   top: 0;
   bottom: 0;

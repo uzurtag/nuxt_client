@@ -17,7 +17,6 @@
         </button>
       </div>
     </div>
-
     <draggable v-model="listGroup" group="people" class="list-cards">
       <div
         v-for="(item, key) in listGroup"
@@ -27,8 +26,6 @@
       >
         <h2>{{ item.title }}</h2>
         <p>{{ item.description }}</p>
-        <!-- <i>{{ item.status }}</i>
-        <i>{{ convertTime(item.date) }}</i> -->
         <div class="item-footer">
           <div class="date">
             <b-badge variant="info">
@@ -101,7 +98,6 @@ export default {
     },
     remBoard(value) {
       this.removeBoard(value)
-      window.console.log(value)
     },
     closeModal() {
       this.show = false
