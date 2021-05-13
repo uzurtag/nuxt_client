@@ -4,6 +4,7 @@ import {
   CHANGE_STATUS,
   REMOVE_TODO,
   UPDATE_TODO,
+  SYNC_WITH_CALENDAR,
 } from '../queries/queries'
 
 export const state = () => ({
@@ -32,6 +33,10 @@ export const mutations = {
     const todos = state.todos
     todos.splice(todos.indexOf(card[0]), 1)
   },
+  SYNC_WITH_CALENDAR(state, data) {
+    const card = state.todos.filter((item) => item.id === data.id)
+    card[0].sync = data.sync
+  },
 }
 
 export const actions = {
@@ -50,6 +55,7 @@ export const actions = {
         description: data.description,
         status: data.status,
         date: data.date,
+        sync: data.sync,
       },
     })
     await commit('ADD_TODO', response.data.addTodo)
@@ -94,6 +100,17 @@ export const actions = {
       },
     })
     await commit('REMOVE_TODO', response.data.deleteTodo)
+  },
+
+  async syncWithCalendar({ commit }, value) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: SYNC_WITH_CALENDAR,
+      variables: {
+        id: value,
+        sync: true,
+      },
+    })
+    await commit('SYNC_WITH_CALENDAR', response.data.sync)
   },
 }
 

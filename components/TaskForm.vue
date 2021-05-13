@@ -60,6 +60,7 @@ export default {
       description: '',
       status: 'todo',
       date: new Date(),
+      sync: false,
     }
 
     if (this.formData !== undefined) {
@@ -69,6 +70,7 @@ export default {
         description: this.formData.description,
         status: this.formData.status,
         date: new Date(this.formData.date),
+        sync: this.formData.sync,
       }
     }
 

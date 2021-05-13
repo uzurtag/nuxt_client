@@ -24,7 +24,12 @@
         :data-id="item.id"
         class="item-card"
       >
-        <h2>{{ item.title }}</h2>
+        <div class="body-header">
+          <h2>{{ item.title }}</h2>
+          <b-badge v-if="!item.sync" variant="info" @click="clk(item.id)">
+            <i>Add to calendar</i>
+          </b-badge>
+        </div>
         <p>{{ item.description }}</p>
         <div class="item-footer">
           <div class="date">
@@ -63,6 +68,7 @@ export default {
   data() {
     return {
       show: false,
+      sync: true,
       nameForm: 'Edit',
       formData: {},
     }
@@ -87,8 +93,12 @@ export default {
     ...mapActions({
       removeItem: 'todo/removeTodo',
       updateItem: 'todo/updateTodo',
+      syncItem: 'todo/syncWithCalendar',
       removeBoard: 'status/removeBoard',
     }),
+    clk(value) {
+      this.syncItem(value)
+    },
     edit(value) {
       this.show = true
       this.formData = value
@@ -135,6 +145,12 @@ h2 {
 .rem-butt button {
   border-radius: 14px;
   padding: 0px 8px;
+}
+
+.body-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .title-container {

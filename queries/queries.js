@@ -8,6 +8,7 @@ export const GET_TODOS = gql`
       description
       status
       date
+      sync
     }
   }
 `
@@ -17,18 +18,21 @@ export const ADD_TODO = gql`
     $description: String
     $status: String
     $date: String
+    $sync: Boolean
   ) {
     addTodo(
       title: $title
       description: $description
       status: $status
       date: $date
+      sync: $sync
     ) {
       id
       title
       description
       status
       date
+      sync
     }
   }
 `
@@ -83,6 +87,15 @@ export const REMOVE_BOARD = gql`
       id
       key
       value
+    }
+  }
+`
+
+export const SYNC_WITH_CALENDAR = gql`
+  mutation($id: ID, $sync: Boolean) {
+    sync(id: $id, sync: $sync) {
+      id
+      sync
     }
   }
 `
